@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoa Don</title>
+</head>
+<body>
+<h1>Hoa Don</h1>
+<label th:text="'Name: ' + ${name}"></label>
+<label th:text="'Address: ' + ${address}"></label>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+    </tr>
+    <tr th:each="cartItem : ${cartItems}">
+        <td th:text="${cartItem.product.productID}"></td>
+        <td th:text="${cartItem.product.name}"></td>
+        <td th:text="${cartItem.product.price}"></td>
+        <td th:text="${cartItem.quantity}"></td>
+    </tr>
+    <tr>
+        <td colspan="4">Total Price</td>
+        <td th:text="${total}"></td>
+    </tr>
+</body>
+</html>

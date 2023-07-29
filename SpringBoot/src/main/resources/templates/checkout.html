@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thanh Toan</title>
+</head>
+<body>
+<h1>Thanh Toan</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+    </tr>
+    <tr th:each="cartItem : ${cartItems}">
+        <td th:text="${cartItem.product.productID}"></td>
+        <td th:text="${cartItem.product.name}"></td>
+        <td th:text="${cartItem.product.price}"></td>
+        <td th:text="${cartItem.quantity}"></td>
+    </tr>
+    <tr>
+        <td colspan="4">Total Price</td>
+        <td th:text="${total}"></td>
+    </tr>
+</table>
+<form th:action="@{/invoice}" method="post">
+    <input type="text" placeholder="name" id="name" name="name">
+    <br>
+    <input type="text" placeholder="address" id="address" name="address">
+    <br>
+    <input type="submit" value="Thanh Toan"/>
+</form>
+</body>
+</html>
